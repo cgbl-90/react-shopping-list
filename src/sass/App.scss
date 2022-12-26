@@ -1,0 +1,106 @@
+// Variables
+
+$base-color: #478905;
+$base-dark: rgba($base-color, 0.88);
+$font: "Open Sans", sans-serif;
+
+//
+
+body {
+  font-family: $font;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 100px;
+  place-items: center;
+}
+
+a,
+a:focus,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  height: 70px;
+}
+
+main {
+  min-height: 500px;
+  display: block;
+  text-align: center;
+  box-shadow: 1px 2px 8px grey;
+
+  .box {
+    width: 500px;
+    margin: 10px auto;
+  }
+
+  form {
+    height: 25px;
+    border: 0.3px solid rgb(215, 215, 215);
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+
+  button {
+    font-family: inherit;
+    font-weight: 900;
+    letter-spacing: 1px;
+    background-color: transparent;
+    border: none;
+    transition: 0.3s ease;
+
+    &:hover,
+    &:focus {
+      color: rgb(5, 5, 214);
+    }
+  }
+
+  input {
+    border: none;
+    border-bottom: 2px solid rgb(5, 5, 214);
+    background-color: transparent;
+    outline: none;
+    width: 40ch;
+  }
+
+  ul {
+    min-height: 100px;
+    list-style: none;
+    text-align: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      padding: 4px;
+      margin-left: 10px;
+      background-color: #e9d4cd;
+      border-radius: 2px;
+
+      &:last-child {
+        background-color: #e5f3d7;
+      }
+
+      &:hover,
+      &:focus {
+        opacity: 0.6;
+      }
+    }
+
+    h5 {
+      display: inline-block;
+      padding-right: 50px;
+    }
+  }
+}
