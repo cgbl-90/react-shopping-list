@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import "./sass/App.css";
 
-const Alerts = ({ msg = "Success", clr = "green" }) => {
-  return <div></div>;
-};
+const Alerts = () => <div className="red">TRY AGAIN</div>;
 
 export default Alerts;
