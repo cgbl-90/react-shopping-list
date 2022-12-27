@@ -5,6 +5,7 @@ import "./sass/App.css";
 
 function List() {
   const [isEditing, setIsEditing] = useState(false);
+  const [itemIndex, setItemIndex] = useState(0);
   const [value, setValue] = useState("");
   const [myList, setMyList] = useState([]);
 
@@ -26,16 +27,15 @@ function List() {
     setMyList(newList);
   }
 
-  function editItemFromList(el) {
+  function editItemFromList(el, id) {
     setIsEditing(true);
+    setItemIndex(id);
     document.querySelector("input").value = el;
   }
 
-  function saveEditedItem(el) {
-    const newList = myList.filter((item) => {
-      if (getIndexOf(item) !== getIndexOf(el)) return item;
-      else return value;
-    });
+  function saveEditedItem() {
+    const newList = [...myList];
+    newList[itemIndex] = value;
     setMyList(newList);
     setIsEditing(false);
   }
@@ -56,13 +56,20 @@ function List() {
       </form>
       <ul>
         {myList.map((listItem) => (
-          <li key={myList.indexOf(listItem)}>
+          <li>
             <h5>{listItem}</h5>
             <img
               src={deleteIcon}
+              alt="delete button"
               onClick={() => removeItemFromList(listItem)}
             />
-            <img src={editIcon} onClick={() => editItemFromList(listItem)} />
+            <img
+              src={editIcon}
+              alt="edit button"
+              onClick={() =>
+                editItemFromList(listItem, myList.indexOf(listItem))
+              }
+            />
           </li>
         ))}
       </ul>
